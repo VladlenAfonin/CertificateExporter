@@ -1,0 +1,32 @@
+<Window
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:vm="using:CertificateExporter"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Class="CertificateExporter.ErrorDialog"
+    x:DataType="vm:ErrorDialogViewModel"
+    Title="Error"
+    SizeToContent="WidthAndHeight"
+    MinWidth="200" MinHeight="100"
+    CanResize="False"
+    ShowInTaskbar="False"
+    WindowStartupLocation="CenterOwner"
+    Icon="/Assets/error.ico"
+>
+    <Grid RowDefinitions="*,Auto" Margin="20">
+        <TextBlock
+            Grid.Row="0"
+            Text="{Binding Message}"
+            TextWrapping="Wrap"
+            VerticalAlignment="Center"
+        />
+
+        <StackPanel
+            Grid.Row="1" Orientation="Horizontal"
+            HorizontalAlignment="Right" Spacing="8"
+        >
+            <Button Content="Close" Command="{Binding Close}" />
+        </StackPanel>
+    </Grid>
+</Window>

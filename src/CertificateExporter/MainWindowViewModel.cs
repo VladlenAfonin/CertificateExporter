@@ -1,3 +1,4 @@
+using System;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
@@ -10,7 +11,7 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace CertificateExporter;
 
-public partial class MainViewModel : ObservableObject
+public partial class MainWindowViewModel : ObservableObject
 {
     [ObservableProperty]
     private string _outputDir = "";
@@ -26,9 +27,25 @@ public partial class MainViewModel : ObservableObject
     [RelayCommand]
     public async Task Export()
     {
+        if (string.IsNullOrWhiteSpace(OutputDir))
+        {
+            var d = ErrorDialog.Create("Output directory must be set.");
+            await d.ShowDialog(App.MainWindow);
+            return;
+        }
+
         if (!Directory.Exists(OutputDir))
         {
-            Directory.CreateDirectory(OutputDir);
+            try
+            {
+                Directory.CreateDirectory(OutputDir);
+            }
+            catch (Exception e)
+            {
+                var d = ErrorDialog.Create($"Error during directory creation: {e.Message}.");
+                await d.ShowDialog(App.MainWindow);
+                return;
+            }
         }
 
         using var store = new X509Store(
@@ -54,7 +71,7 @@ public partial class MainViewModel : ObservableObject
             }
             catch (CryptographicException exception)
             {
-                System.Console.Error.Write(
+                Console.Error.Write(
                     $"WARNING: Unable to export key for certificate {subjectCn} {certificate.Thumbprint}.\n"
                         + $"         Exception: {exception.Message}\n"
                 );
