@@ -4,15 +4,15 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:vm="using:CertificateExporter"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    x:Class="CertificateExporter.ErrorDialog"
-    x:DataType="vm:ErrorDialogViewModel"
-    Title="Error"
+    x:Class="CertificateExporter.SuccessDialog"
+    x:DataType="vm:SuccessDialogViewModel"
+    Title="Success"
     SizeToContent="WidthAndHeight"
-    MinWidth="200" MinHeight="100"
+    MinWidth="230" MinHeight="100"
     CanResize="False"
     ShowInTaskbar="False"
     WindowStartupLocation="CenterOwner"
-    Icon="/Assets/error.ico"
+    Icon="/Assets/success.ico"
 >
     <Grid RowDefinitions="*,Auto" Margin="20">
         <TextBlock

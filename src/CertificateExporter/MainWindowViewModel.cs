@@ -25,7 +25,7 @@ public partial class MainWindowViewModel : ObservableObject
     ["archive\\.cryptopro\\.ru-.*", "pki-cluster-core-.*"];
 
     [RelayCommand]
-    public async Task Export()
+    private async Task Export()
     {
         if (string.IsNullOrWhiteSpace(OutputDir))
         {
@@ -77,10 +77,13 @@ public partial class MainWindowViewModel : ObservableObject
                 );
             }
         }
+
+        var successDialog = SuccessDialog.Create("Done.");
+        await successDialog.ShowDialog(App.MainWindow);
     }
 
     [RelayCommand]
-    public async Task Browse()
+    private async Task Browse()
     {
         var storageProvider = App.MainWindow.StorageProvider;
         var dirPicker = await storageProvider.OpenFolderPickerAsync(
