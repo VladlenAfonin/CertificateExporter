@@ -7,6 +7,7 @@
     <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <ApplicationIcon>Assets\certificate.ico</ApplicationIcon>
     <PublishSingleFile>true</PublishSingleFile>
     <TrimMode>full</TrimMode>
     <SelfContained>true</SelfContained>
@@ -15,7 +16,7 @@
     <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <AvaloniaResource Include="Assets/**" />
+    <AvaloniaResource Include="Assets\**" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="12.0.0" />
