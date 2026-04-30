@@ -10,6 +10,7 @@
 [Setup]
 SetupIconFile={#MyIconPath}
 AppId={{55C625B8-49DA-4277-894B-15C6E17543EB}
+UninstallDisplayIcon={app}\{#MyExecutableName}.exe
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 AppVerName={#MyAppName} {#MyAppVersion}
