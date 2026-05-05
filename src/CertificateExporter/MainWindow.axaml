@@ -10,8 +10,6 @@
     Title="Certificate Exporter"
     WindowStartupLocation="CenterScreen"
     ExtendClientAreaToDecorationsHint="False"
-    TransparencyLevelHint="AcrylicBlur"
-    Background="Transparent"
     Width="500" Height="150" CanResize="False"
     Icon="/Assets/certificate.ico"
 >
